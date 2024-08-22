@@ -39,7 +39,10 @@ After loading the data, the next step was data cleaning. Excel was used to check
 Attached on these repositories are the MYSQL script used to obtain the analysis.
 The data was then loaded to POWERBI for visualisation and analysis.
 
-Bellow are the findings:
+Below are the findings:
+
+https://app.powerbi.com/links/uWIgUWNzIy?ctid=0765532a-06c1-4f0f-9f39-394689f5f8fe&pbi_source=linkShare
+
 Key Metrics Overview
           •	Balance: The total account balance of the bank's customers is $764.86 million.
           •	Total Customers: The bank serves a total of 10,000 customers.
