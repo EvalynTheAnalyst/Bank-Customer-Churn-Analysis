@@ -7,7 +7,7 @@ This project features an interactive PowerBi dashboard developed to analyze Bank
 In today's competitive banking environment, retaining customers is more crucial than ever for financial institutions. Customer churn, or the loss of clients to competitors, can significantly affect a bank's profitability and long-term growth. This analysis aims to identify the factors that drive customers to end their relationship with the bank. By understanding these underlying reasons, banks can develop strategies to mitigate customer attrition. The purpose of this analysis is to provide insights into customer churn rates and offer recommendations for areas of improvement.
 
 
-About The Dataset:
+#About The Dataset:
 The dataset was obtained from  Kaggle by Shawanand. The link to the dataset is as below:
 https://www.kaggle.com/datasets/anandshaw2001/customer-churn-dataset
 
@@ -30,17 +30,14 @@ Data Description:
     . Exited: The target variable, indicating whether the customer has churned (1) or not (0).
 
 
-Primary KPIs:
-              •	Determine Customer churning rate per country.
-              •	Relationship between Tenure and Customer churning rate.
-              •	Average account balance per country.
-              •	Overall Churn Percentage
-              •	Relationship between customer churn and balance.
-              •	Factors affecting churning rate of customers.
+The Analysis
+1. Data Preparation
+Data Import 
 
+Open the file in MySql.
 
 Data Cleaning and Transformation:
-After loading the data, the next step was data cleaning. Excel was used to check for any missing values and duplicates. To remove duplicates, I selected the data, navigated to the Data Ribbon, and under Data Tools, chose "Remove Duplicates." I then selected the Unique ID and clicked OK. To address any missing values, I applied a filter using conditional formatting to identify blanks in the dataset; however, no missing data was found. I also ensured that all data types were correctly assigned. Finally, the cleaned dataset was saved and uploaded into MySQL for further analysis.
+ MySql was used to check for any missing values and duplicates. To remove duplicates, I selected the data, navigated to the Data Ribbon, and under Data Tools, chose "Remove Duplicates." I then selected the Unique ID and clicked OK. To address any missing values, I applied a filter using conditional formatting to identify blanks in the dataset; however, no missing data was found. I also ensured that all data types were correctly assigned. Finally, the cleaned dataset was saved and uploaded into MySQL for further analysis.
 
 Attached on these repositories are the MYSQL script used to obtain the analysis.
 The data was then loaded to POWERBI for visualisation and analysis.
