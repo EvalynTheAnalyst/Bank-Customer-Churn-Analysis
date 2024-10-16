@@ -1,5 +1,11 @@
-# Bank-Customer-Churn-Analysis
+# Bank-Customer-Churn-Analysis Dashboard
+This project features an interactive PowerBi dashboard developed to analyze Bank Customers Churning Rate.
+![image](https://github.com/user-attachments/assets/b1149248-f204-4308-a33e-ea3e66573da6)
+
+# Introduction:
+
 In today's competitive banking environment, retaining customers is more crucial than ever for financial institutions. Customer churn, or the loss of clients to competitors, can significantly affect a bank's profitability and long-term growth. This analysis aims to identify the factors that drive customers to end their relationship with the bank. By understanding these underlying reasons, banks can develop strategies to mitigate customer attrition. The purpose of this analysis is to provide insights into customer churn rates and offer recommendations for areas of improvement.
+
 
 About The Dataset:
 The dataset was obtained from  Kaggle by Shawanand. The link to the dataset is as below:
