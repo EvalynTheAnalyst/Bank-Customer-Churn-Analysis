@@ -37,8 +37,7 @@ Data Import
 Open the file in MySql.
 
 Data Cleaning and Transformation:
- MySql was used to check for any missing values and duplicates. To remove duplicates, I selected the data, navigated to the Data Ribbon, and under Data Tools, chose "Remove Duplicates." I then selected the Unique ID and clicked OK. To address any missing values, I applied a filter using conditional formatting to identify blanks in the dataset; however, no missing data was found. I also ensured that all data types were correctly assigned. Finally, the cleaned dataset was saved and uploaded into MySQL for further analysis.
-
+ MySql was used to check for any missing values and duplicates. 
 Attached on these repositories are the MYSQL script used to obtain the analysis.
 The data was then loaded to POWERBI for visualisation and analysis.
 
