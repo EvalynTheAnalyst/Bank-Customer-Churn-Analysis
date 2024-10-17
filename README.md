@@ -1,12 +1,12 @@
-Introduction:
+#Introduction:
 In today’s competitive banking landscape, customer retention is critical to maintaining profitability and sustaining growth. High customer churn, where clients leave for competitors, can drastically affect a bank’s revenue. Through this analysis, I aim to identify key drivers behind customer churn by leveraging SQL for data preparation and Power BI for visualization. By analyzing these factors, I can provide actionable insights to help the bank develop strategies to reduce customer attrition, improve satisfaction, and foster long-term relationships.
 ![image](https://github.com/user-attachments/assets/57bea6b8-ea0f-4d97-a37f-4881d33e134c)
 
 
-About the Dataset:
+#About the Dataset:
 The dataset used for this analysis was sourced from Kaggle, created by Shawanand, and can be accessed here.
 
-Dataset Overview:
+#Dataset Overview:
 
 RowNumber: Unique identifier for each record.
 CustomerId: Unique customer identification number.
@@ -33,15 +33,16 @@ Duplicate Removal: Checked for any duplicate entries based on the CustomerId fie
 
 DELETE FROM customer_data
 WHERE CustomerId IN (SELECT CustomerId FROM customer_data GROUP BY CustomerId HAVING COUNT(*) > 1);
+
 Handling Missing Values: Inspected for missing data in critical fields such as CreditScore, Balance, and Geography. There was no missing values.
 ![image](https://github.com/user-attachments/assets/ac66d818-49eb-4fee-a2c8-a83dfcc096e2)
 
 Once the data was cleaned, it was exported for Power BI analysis.
 
-Analysis and Visualization (Using Power BI)
+#Analysis and Visualization (Using Power BI)
 After cleaning the data with MySQL, I imported the dataset into Power BI for detailed analysis. Below are the key metrics and insights derived from the visualizations:
 
-Key Metrics Overview:
+#Key Metrics Overview:
 Total Balance: $764.86 million
 Total Customers: 10,000
 Churn Rate: 20.37% (approx. 2 out of 10 customers have churned)
@@ -76,7 +77,8 @@ Credit Card Ownership and Churn:
 
 Customers without credit cards are more likely to churn.
 Insight: Promote credit card products as a retention tool.
-Conclusion
+
+#Conclusion
 The analysis reveals that customer churn is heavily influenced by geographic factors, credit score, and account balance. Germany, in particular, stands out due to its high churn rate coupled with substantial balance loss, making it a critical area for retention strategies. Additionally, a correlation between credit card ownership and churn suggests opportunities for product promotion to reduce attrition. The consistent churn across tenure lengths also indicates that banks should intervene early in the customer relationship to enhance loyalty.
 
 By leveraging MySQL for data cleaning and Power BI for visual insights, I identified key drivers behind churn and presented actionable recommendations for improving customer retention.
