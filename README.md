@@ -1,83 +1,85 @@
-# Bank-Customer-Churn-Analysis Dashboard
-This project features an interactive PowerBi dashboard developed to analyze Bank Customers Churning Rate.
-![image](https://github.com/user-attachments/assets/b1149248-f204-4308-a33e-ea3e66573da6)
-
-# Introduction:
-
-In today's competitive banking environment, retaining customers is more crucial than ever for financial institutions. Customer churn, or the loss of clients to competitors, can significantly affect a bank's profitability and long-term growth. This analysis aims to identify the factors that drive customers to end their relationship with the bank. By understanding these underlying reasons, banks can develop strategies to mitigate customer attrition. The purpose of this analysis is to provide insights into customer churn rates and offer recommendations for areas of improvement.
+Introduction:
+In today’s competitive banking landscape, customer retention is critical to maintaining profitability and sustaining growth. High customer churn, where clients leave for competitors, can drastically affect a bank’s revenue. Through this analysis, I aim to identify key drivers behind customer churn by leveraging SQL for data preparation and Power BI for visualization. By analyzing these factors, I can provide actionable insights to help the bank develop strategies to reduce customer attrition, improve satisfaction, and foster long-term relationships.
+![image](https://github.com/user-attachments/assets/57bea6b8-ea0f-4d97-a37f-4881d33e134c)
 
 
-#About The Dataset:
-The dataset was obtained from  Kaggle by Shawanand. The link to the dataset is as below:
-https://www.kaggle.com/datasets/anandshaw2001/customer-churn-dataset
+About the Dataset:
+The dataset used for this analysis was sourced from Kaggle, created by Shawanand, and can be accessed here.
 
-Data Description:
+Dataset Overview:
 
-    •	Break down the dataset in detail, describing what each column represents:
-    •	RowNumber: A unique identifier for each row in the dataset.
-    •	CustomerId: Unique customer identification number.
-    •	Surname: The last name of the customer (for privacy reasons, consider anonymizing this data if not already done).
-    •	CreditScore: The customer's credit score at the time of data collection.
-    •	Geography: The customer's country or region, providing insights into location-based trends in churn.
-    •	Gender: The customer's gender.
-    •	Age: The customer's age, valuable for demographic analysis.
-    •	Tenure: The number of years the customer has been with the bank.
-    •	Balance: The customer's account balance.
-    •	NumOfProducts: The number of products the customer has purchased or subscribed to.
-    •	HasCrCard: Indicates whether the customer has a credit card (1) or not (0).
-    •	IsActiveMember: Indicates whether the customer is an active member (1) or not (0).
-    •	EstimatedSalary: The customer's estimated salary.
-    . Exited: The target variable, indicating whether the customer has churned (1) or not (0).
+RowNumber: Unique identifier for each record.
+CustomerId: Unique customer identification number.
+Surname: Customer’s last name (this can be anonymized for privacy).
+CreditScore: Customer's credit score at the time of data collection.
+Geography: Customer's country/region.
+Gender: Customer's gender.
+Age: Customer’s age.
+Tenure: Number of years the customer has been with the bank.
+Balance: Customer’s account balance.
+NumOfProducts: Number of products the customer has subscribed to.
+HasCrCard: Whether the customer has a credit card (1 = Yes, 0 = No).
+IsActiveMember: Whether the customer is an active member (1 = Yes, 0 = No).
+EstimatedSalary: Customer’s estimated salary.
+Exited: Target variable indicating churn (1 = Yes, 0 = No).
+Data Preparation
+Step 1: Data Import (Using MySQL)
+The dataset was first loaded into MySQL to carry out data cleaning and transformation. Using SQL queries, I ensured the dataset was prepped for analysis in Power BI.
 
+Step 2: Data Cleaning and Transformation
+To ensure the dataset's integrity and accuracy, the following steps were applied:
 
-The Analysis
-1. Data Preparation
-Data Import 
+Duplicate Removal: Checked for any duplicate entries based on the CustomerId field to avoid skewing results.
 
-Open the file in MySql.
+DELETE FROM customer_data
+WHERE CustomerId IN (SELECT CustomerId FROM customer_data GROUP BY CustomerId HAVING COUNT(*) > 1);
+Handling Missing Values: Inspected for missing data in critical fields such as CreditScore, Balance, and Geography. There was no missing values.
+![image](https://github.com/user-attachments/assets/ac66d818-49eb-4fee-a2c8-a83dfcc096e2)
 
-Data Cleaning and Transformation:
- MySql was used to check for any missing values and duplicates. 
-Attached on these repositories are the MYSQL script used to obtain the analysis.
-The data was then loaded to POWERBI for visualisation and analysis.
+Once the data was cleaned, it was exported for Power BI analysis.
 
-Below are the findings:
+Analysis and Visualization (Using Power BI)
+After cleaning the data with MySQL, I imported the dataset into Power BI for detailed analysis. Below are the key metrics and insights derived from the visualizations:
 
-https://app.powerbi.com/links/uWIgUWNzIy?ctid=0765532a-06c1-4f0f-9f39-394689f5f8fe&pbi_source=linkShare
+Key Metrics Overview:
+Total Balance: $764.86 million
+Total Customers: 10,000
+Churn Rate: 20.37% (approx. 2 out of 10 customers have churned)
+Churned Customer Balance: $185.95 million
+Detailed Analysis:
+Customer Churn by Country:
 
-Key Metrics Overview
-          •	Balance: The total account balance of the bank's customers is $764.86 million.
-          •	Total Customers: The bank serves a total of 10,000 customers.
-          •	Churn Rate: The customer churn rate stands at 20.37%, indicating that roughly 2 out of every 10 customers have left the bank.
-          •	Total Customer Churn Balance. The total balance for the customers who have left is at 185.95M. 
-Detailed Analysis
-1.	Customer Churned per Country:
-      o	The pie chart shows the distribution of churned customers across three countries: Germany (39.9%), France (39.76%), and Spain (20.27%).
-      o	Germany has the highest number of churned customers, closely followed by France, with Spain having significantly fewer.
-2.	Total Account Balance for Existing and Churned Clients by Country:
-     ]o	Existing Clients:France leads with an account balance of $0.25 billion, followed by Germany ($0.20 billion), and Spain ($0.12 billion).
-      o	Churned Clients:Germany has the highest churned client balance at $98 million, followed by France ($58 million) and Spain ($30 million).
-      o	This suggests that while Germany has the highest churn, it also has a substantial number of high-value customers who are leaving.
-3.	Total Churned Customers by Credit Score Category:
-      o	Customers with a "Fair credit" rating appear to churn the most, followed by those with "Poor credit" and "Good credit."
-      o	Very few customers with "Excellent credit" have churned, indicating that higher credit scores correlate with better customer retention.
-4.	Churned Active Members Per Country:
-      o	The bar chart indicates that France and Germany have a similar number of churned active members, with Spain significantly lower.
-      o	This trend aligns with the overall churn data by country.
-5.	Estimated Salary by Age and Gender:
-      o	The histogram shows that both male and female customers have similar salary distributions across different age groups, with a peak in the 50-60 age range.
-      o	The distribution suggests that middle-aged customers have the highest earning potential, which could be a factor in retention strategies.
-6.	Total Churn Customer Per Tenure:
-      o	The bar chart indicates that churn is relatively consistent across different tenure lengths, with a slight decrease in customers who have been with the bank for 9-10 years.
-      o	This suggests that customers are more likely to churn earlier in their relationship with the bank.
-7.	Relationship Between Card Holder and Churning Rate:
-      o	A significant portion of churned customers did not have a credit card, indicating a potential correlation between credit card ownership and customer retention.
-      o	This insight could guide the bank in promoting credit card products to reduce churn rates.
+The pie chart shows that Germany (39.9%) and France (39.76%) have the highest churn rates, with Spain at a lower 20.27%.
+Insight: Germany requires immediate attention as it experiences both high churn and significant customer value loss.
+Account Balance of Existing and Churned Clients by Country:
 
+Existing Clients: France leads with $0.25 billion, followed by Germany and Spain.
+Churned Clients: Germany tops the list with $98 million in lost balances.
+Insight: Target high-value German customers for retention initiatives to mitigate loss.
+Churn by Credit Score Category:
+
+Customers with "Fair" credit scores churn the most, followed by "Poor" and "Good" credit ratings.
+Insight: Focus on retention strategies for customers with mid-range credit scores.
+Churned Active Members by Country:
+
+Both France and Germany have a similar number of churned active members.
+Insight: Strengthen engagement programs in France and Germany to prevent further churn among active members.
+Estimated Salary by Age and Gender:
+
+The peak salary range is in the 50-60 age bracket, with similar trends for both genders.
+Insight: Tailor retention strategies to middle-aged, high-income customers.
+Churn by Tenure:
+
+Churn is consistent across most tenure lengths, with a slight dip in customers who’ve been with the bank for over 9 years.
+Insight: Focus on early intervention to retain newer customers.
+Credit Card Ownership and Churn:
+
+Customers without credit cards are more likely to churn.
+Insight: Promote credit card products as a retention tool.
 Conclusion
-The Bank Customer Churn Analysis visualisation effectively highlights key factors contributing to customer churn, such as geographic location, credit score, and account balance. Germany, in particular, presents a critical area for the bank, as it has both the highest churn rate and a substantial portion of high-balance accounts leaving the bank. The analysis suggests that focusing on improving customer satisfaction and retention strategies in Germany could significantly reduce overall churn rates.
-Furthermore, the relationship between credit card ownership and churn indicates that promoting credit card products could be a strategic move to retain customers. The consistent churn rate across various tenure lengths also suggests that early intervention strategies could be crucial in retaining customers.
-In conclusion, this dashboard serves as a valuable tool for understanding and addressing customer churn, offering actionable insights to improve customer retention and enhance overall bank performance.
+The analysis reveals that customer churn is heavily influenced by geographic factors, credit score, and account balance. Germany, in particular, stands out due to its high churn rate coupled with substantial balance loss, making it a critical area for retention strategies. Additionally, a correlation between credit card ownership and churn suggests opportunities for product promotion to reduce attrition. The consistent churn across tenure lengths also indicates that banks should intervene early in the customer relationship to enhance loyalty.
+
+By leveraging MySQL for data cleaning and Power BI for visual insights, I identified key drivers behind churn and presented actionable recommendations for improving customer retention.
 
 
 
